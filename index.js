@@ -29,6 +29,16 @@ io.on('connection', function(socket) {
         }
     }
 
+    // Positional Data from client
+    socket.on('updatePosition', function(data) {
+        player.gridPosition.x = data.gridPosition.x;
+        player.gridPosition.y = data.gridPosition.y;
+        player.facingDirection.x = data.facingDirection.x;
+        player.facingDirection.y = data.facingDirection.y;
+
+        socket.broadcast.emit('updatePosition', player);
+    });
+
     socket.on('disconnect', function() {
         console.log('A client has disconnected');
         delete players[thisPlayerID];
