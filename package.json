@@ -1,0 +1,15 @@
+{
+  "name": "criticalhitserver",
+  "version": "1.0.0",
+  "description": "Server for the unity game Critical Hit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Calderon",
+  "license": "ISC",
+  "dependencies": {
+    "shortid": "^2.2.15",
+    "socket.io": "^2.3.0"
+  }
+}
