@@ -20,7 +20,7 @@ io.on('connection', function(socket) {
     // Tell client their ID
     socket.emit('register', { id: thisPlayerID });
     socket.emit('spawn', player); // Tell the client to spawn
-    socket.broadcast('spawn', player); // Tell every other socket to spawn this client
+    socket.broadcast.emit('spawn', player); // Tell every other socket to spawn this client
 
     // Tell the client to spawn all existing players
     for(var playerID in players){
@@ -33,5 +33,6 @@ io.on('connection', function(socket) {
         console.log('A client has disconnected');
         delete players[thisPlayerID];
         delete sockets[thisPlayerID];
+        socket.broadcast.emit('disconnected', player);
     });
 });
